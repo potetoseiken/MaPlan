@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Prefecture extends Model
 {
     use HasFactory;
+    
+    //Prefectureに属するPlanを取得
+    public function plans() {
+        return $this->belongsToMany(Plan::class);
+    }
 }

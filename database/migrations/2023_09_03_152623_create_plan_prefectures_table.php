@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('days', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('plan_id');
-            $table->string('day_name', );
-            $table->date('date');
+        Schema::create('plan_prefectures', function (Blueprint $table) {
+            $table->id();            
+            $table->foreignId('plan_id')->constrained();
+            $table->foreignId('prefecture_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('days');
+        Schema::dropIfExists('plan_prefectures');
     }
 };

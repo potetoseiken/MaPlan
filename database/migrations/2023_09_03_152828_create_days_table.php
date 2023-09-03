@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spots', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', 50)->unique();
-            $table->string('address', 100)->unique();
-            $table->text('spot_image')->nullable();
+        Schema::create('days', function (Blueprint $table) {
+            $table->id();           
+            $table->foreignId('plan_id')->constrained()->onDelete('cascade');
+            $table->string('day_name', 5);
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spots');
+        Schema::dropIfExists('days');
     }
 };
