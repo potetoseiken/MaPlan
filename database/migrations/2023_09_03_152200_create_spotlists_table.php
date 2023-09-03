@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('memos', function (Blueprint $table) {
+        Schema::create('spotlists', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('plan_id');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('title', 100);
-            $table->text('content');
+            $table->date('deleted_at')->nullable();
+
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('memos');
+        Schema::dropIfExists('spotlists');
     }
 };

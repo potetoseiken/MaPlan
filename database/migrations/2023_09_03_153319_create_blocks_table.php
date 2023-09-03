@@ -14,12 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('blocks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('day_id');
-            $table->foreignId('spot_id')->nullable();
-            $table->foreignId('category_id');
-            $table->foreignId('trans_method_id')->nullable();
-            $table->foreignId('icon_id');
+            $table->id();           
+            $table->foreignId('day_id')->constrained()->onDelete('cascade');
+            $table->foreignId('spot_id')->nullable()->constrained();
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('trans_method_id')->nullable()->constrained();
+            $table->foreignId('icon_id')->constrained();
             $table->dateTime('start_at')->nullable();
             $table->dateTime('finish_at')->nullable();
             $table->integer('budget')->nullable();

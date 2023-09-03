@@ -13,11 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spotlists', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
-            $table->string('title', 100);
-            $table->date('deleted_at')->nullable();
+        Schema::create('block_spots', function (Blueprint $table) {
+            $table->id();          
+            $table->foreignId('block_id')->constrained();
+            $table->foreignId('spot_id')->constrained();
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spotlists');
+        Schema::dropIfExists('block_spots');
     }
 };

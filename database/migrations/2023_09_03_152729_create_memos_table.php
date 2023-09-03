@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('plan_prefectures', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('plan_id');
-            $table->foreignId('prefecture_id');
+        Schema::create('memos', function (Blueprint $table) {
+            $table->id();           
+            $table->foreignId('plan_id')->constrained()->onDelete('cascade');
+            $table->string('title', 100);
+            $table->text('content');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plan_prefectures');
+        Schema::dropIfExists('memos');
     }
 };
