@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('block_spots', function (Blueprint $table) {
+        Schema::create('block_spot', function (Blueprint $table) {
             $table->id();          
             $table->foreignId('block_id')->constrained();
             $table->foreignId('spot_id')->constrained();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('block_spots');
+        Schema::dropIfExists('block_spot');
     }
 };
