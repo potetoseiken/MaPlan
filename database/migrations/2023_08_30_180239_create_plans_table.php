@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->dateTime('start_at');
-            $table->dateTime('finish_at');
+            $table->date('start_at');
+            $table->date('finish_at');
             $table->integer('budget')->nullable();
             $table->dateTime('deleted_at')->nullable();
             $table->timestamps();

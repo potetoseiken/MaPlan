@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('spot_spotlists', function (Blueprint $table) {
+        Schema::create('spot_spotlist', function (Blueprint $table) {
             $table->id();           
             $table->foreignId('spot_id')->constrained();
             $table->foreignId('spotlist_id')->constrained();
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spot_spotlists');
+        Schema::dropIfExists('spot_spotlist');
     }
 };

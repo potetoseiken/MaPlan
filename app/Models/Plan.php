@@ -9,6 +9,8 @@ class Plan extends Model
 {
     use HasFactory;
     
+    protected $fillable =['title', 'start_at', 'finish_at', 'budget'];
+    
     //Planが属するUserを取得
     public function user() {
         return $this->belongsTo(User::class);
